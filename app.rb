@@ -21,8 +21,23 @@ get("/") do
   parsed_data = JSON.parse(raw_data_string)
 
   # get the symbols from the JSON
-  @symbols = parsed_data.fetch("currencies")
+  @symbols = parsed_data.fetch("currencies").keys
 
   # render a view template where I show the symbols
   erb(:homepage)
+end
+
+get '/convert/:from/:to' do
+  from_currency = params['from']
+  to_currency = params['to']
+
+  # Use exchangerate.host API to get exchange rates
+  exchange_rates_url = "https://api.apilayer.com/exchangerates/#{from_currency}/#{to_currency}"
+  data = JSON.parse(open(exchange_rates_url).read)
+
+  # Extract the exchange rate
+  exchange_rate = data['rates'][to_currency]
+
+  # Render a view template to show the conversion
+  erb :conversion, locals: { from_currency: from_currency, to_currency: to_currency, exchange_rate: exchange_rate }
 end

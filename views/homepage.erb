@@ -7,7 +7,9 @@
   <h1>Currency pairs</h1>
   <ul>
     <% @symbols.each do |symbol| %>
-      <li><%= symbol %></li>
+      <li>
+      Convert 1<%= symbol %> to . . . <a href="/convert/<%= symbol %>/"><%= symbol %></a>
+      </li>
     <% end %>
   </ul>
 </body>
