@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Currency Middle Page</title>
+</head>
+<body>
+  <h1>Convert <%= @from_currency %></h1>
+  <h3> Go <a href="/">back.</a></h3>
+  <ul>
+    <% @symbols.each do |symbol| %>
+      <li>
+      <a href="/<%= @from_currency %>/<%= symbol %>">Convert 1 <%= @from_currency %> to <%= symbol %> . . . </a>
+      </li>
+    <% end %>
+  </ul>
+
+</body>
+</html>

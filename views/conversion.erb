@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
 <head>
-  <title>Currency Conversion</title>
+  <title>Conversion Page</title>
 </head>
 <body>
-  <h1>Convert 1 <%= from_currency %> to <%= to_currency %></h1>
-  <p>1 <%= from_currency %> is equal to <%= exchange_rate %> <%= to_currency %></p>
+  <h1>Convert <%= @from_currency %> to <%= @to_currency %></h1>
+  1 <%= @from_currency %> equals <%= @exchange_rate %> <%= @to_currency %>.
+  <h3> Go <a href="/<%= @from_currency %>">back.</a></h3>
 </body>
 </html>
